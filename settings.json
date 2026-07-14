@@ -1,0 +1,25 @@
+{
+  "whatsapp": "+256 770 903 235",
+  "email": "ocktagonstudios@gmail.com",
+  "youtube_channel": "https://www.youtube.com/@OctagonFilms-q6k",
+  "youtube_video": "https://www.youtube.com/watch?v=5Fiq59JbLVA",
+  "youtube_video_id": "5Fiq59JbLVA",
+  "red_note": "🎬 Dancing Girl is now streaming on YouTube! Watch, like and subscribe.",
+  "show_red_note": true,
+  "cast": [
+    { "name": "Queen Kellisha", "role": "Dancer", "emoji": "👑" },
+    { "name": "Kyomuhendo Gift", "role": "Hope", "emoji": "💫" },
+    { "name": "Mushabe Nickson", "role": "Lecturer", "emoji": "📚" },
+    { "name": "Twesigyomwe Dorothy", "role": "Dancer", "emoji": "💃" }
+  ],
+  "crew": [
+    { "role": "Director", "names": ["Aratutambire Anicia"] },
+    { "role": "Producer & Writer", "names": ["Kaye Joshua"] },
+    { "role": "Overall Supervisor", "names": ["Ssemanganda Reagan"] },
+    { "role": "Cinematographers", "names": ["Tree Moses", "Tribx Tony"] },
+    { "role": "Editors", "names": ["Tree Moses", "Trib YX"] },
+    { "role": "Advertising Team", "names": ["Ahumuza Natasha", "Nalukenge Angella Ruth"] }
+  ],
+  "stats": { "views": "371", "likes": "47", "subscribers": "32" },
+  "gallery_count": 14
+}

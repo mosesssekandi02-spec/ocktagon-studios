@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ocktagon Studios — Films That Move You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Red Note Banner -->
+  <div class="red-note" id="redNoteBanner" style="display:none;">
+    <span id="redNoteText"></span>
+  </div>
+
+  <!-- Ambient Background -->
+  <div class="ambient-bg">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-mark">O</div>
+        <span class="logo-text">Ocktagon</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#films">Films</a></li>
+        <li><a href="#castcrew">Cast & Crew</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">Studio</a></li>
+        <li><a href="#watch">Watch</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/admin" class="nav-cta" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff;">⚙️ Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-visual">
+      <img src="https://i.ytimg.com/vi/5Fiq59JbLVA/maxresdefault.jpg" alt="Dancing Girl">
+      <div class="hero-vignette"></div>
+      <div class="hero-gradient"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>Ocktagon Studios Presents</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">We Make Films</span>
+        <span class="title-line title-accent">That Move You</span>
+      </h1>
+      <p class="hero-desc">Independent cinema from Uganda. Raw stories. Real emotion. Unforgettable moments.</p>
+      <div class="hero-actions">
+        <a href="https://www.youtube.com/watch?v=5Fiq59JbLVA" target="_blank" class="btn btn-glow" id="heroWatchBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Watch Now
+        </a>
+        <a href="https://www.youtube.com/@OctagonFilms-q6k" target="_blank" class="btn btn-ghost" id="heroChannelBtn">Our Channel</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Film -->
+  <section class="featured" id="films">
+    <div class="container">
+      <div class="section-tag">
+        <span class="tag-pulse"></span>
+        <span>Latest Release</span>
+      </div>
+
+      <div class="film-feature">
+        <div class="film-media">
+          <div class="film-frame">
+            <img src="https://i.ytimg.com/vi/5Fiq59JbLVA/maxresdefault.jpg" alt="Dancing Girl" id="featuredImg">
+            <a href="https://www.youtube.com/watch?v=5Fiq59JbLVA" target="_blank" class="film-play" id="featuredPlay">
+              <div class="play-ring"></div>
+              <div class="play-ring play-ring-2"></div>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="film-details">
+          <h2 class="film-title">Dancing Girl</h2>
+          <div class="film-meta-row">
+            <span class="film-year">2025</span>
+            <span class="film-dot"></span>
+            <span>4 Minutes</span>
+            <span class="film-dot"></span>
+            <span class="film-genre">Drama</span>
+          </div>
+          <p class="film-synopsis">
+            Ahumuza, a young girl doubted by most, goes out to pursue her dream by joining university to become the best dancer she could be. A powerful short film about resilience, family pressure, and the unstoppable force of a dream.
+          </p>
+          <div class="film-stats-row" id="filmStats">
+            <div class="f-stat">
+              <span class="f-stat-num" id="statViews">371</span>
+              <span class="f-stat-label">Views</span>
+            </div>
+            <div class="f-stat">
+              <span class="f-stat-num" id="statLikes">47</span>
+              <span class="f-stat-label">Likes</span>
+            </div>
+            <div class="f-stat">
+              <span class="f-stat-num" id="statSubs">32</span>
+              <span class="f-stat-label">Subscribers</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=5Fiq59JbLVA" target="_blank" class="btn btn-glow btn-large" id="featuredWatchBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Watch on YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-image-wrap">
+          <div class="about-image">
+            <img src="https://i.ytimg.com/vi/5Fiq59JbLVA/maxresdefault.jpg" alt="Behind the scenes" id="aboutImg">
+          </div>
+          <div class="about-float-card">
+            <span class="float-num">2025</span>
+            <span class="float-label">Founded</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-tag">The Studio</div>
+          <h2 class="section-headline">Ugandan Stories,<br><span class="text-gradient">Global Reach</span></h2>
+          <p class="about-text">Ocktagon Studios is an independent film production house based in Uganda. We create short films, documentaries, and visual stories that capture the heartbeat of East African life.</p>
+          <p class="about-text">From the streets of Kampala to university halls, our cameras follow real people with real dreams. No big budgets. Just big hearts.</p>
+
+          <div class="values">
+            <div class="value-item">
+              <div class="value-icon-wrap">
+                <span>🎬</span>
+              </div>
+              <div>
+                <h4>Authentic Stories</h4>
+                <p>Real people, real struggles</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon-wrap">
+                <span>🎵</span>
+              </div>
+              <div>
+                <h4>Original Sound</h4>
+                <p>Music crafted in-house</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon-wrap">
+                <span>🌍</span>
+              </div>
+              <div>
+                <h4>Ugandan Voice</h4>
+                <p>Stories the world needs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Watch -->
+  <section class="watch" id="watch">
+    <div class="container">
+      <div class="watch-header">
+        <div>
+          <div class="section-tag">Our Work</div>
+          <h2 class="section-headline">Watch Our Films</h2>
+        </div>
+        <a href="https://www.youtube.com/@OctagonFilms-q6k" target="_blank" class="btn btn-ghost" id="viewAllBtn">View All →</a>
+      </div>
+
+      <div class="films-list">
+        <div class="film-row">
+          <div class="film-thumb">
+            <img src="https://i.ytimg.com/vi/5Fiq59JbLVA/maxresdefault.jpg" alt="Dancing Girl" id="watchThumb">
+            <a href="https://www.youtube.com/watch?v=5Fiq59JbLVA" target="_blank" class="film-row-play" id="watchPlay">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </a>
+            <span class="film-badge">Latest</span>
+          </div>
+          <div class="film-row-info">
+            <h3>Dancing Girl</h3>
+            <p>A young girl pursues her dream of becoming a dancer despite doubt from those around her.</p>
+            <div class="film-row-meta">
+              <span>2025</span>
+              <span class="meta-sep">•</span>
+              <span>4 min</span>
+              <span class="meta-sep">•</span>
+              <span>Drama</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=5Fiq59JbLVA" target="_blank" class="film-row-btn" id="watchBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Channel CTA -->
+      <div class="channel-bar">
+        <div class="channel-info">
+          <img src="https://yt3.ggpht.com/FLq424_1pVxIYDGcGTQO53z1asehHKZ5xtwZfFhpUEmPj7Z5wP6QMo6NjefUz6G7UXNhG_cVj6c=s176-c-k-c0x00ffffff-no-rj" alt="Ocktagon Studios" class="channel-avatar" id="channelAvatar">
+          <div>
+            <h4>Ocktagon Studios</h4>
+            <p><span id="channelSubs">32</span> subscribers • Independent films from Uganda</p>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@OctagonFilms-q6k?sub_confirmation=1" target="_blank" class="btn btn-yt" id="subscribeBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Subscribe
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cast & Crew -->
+  <section class="castcrew" id="castcrew">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag">The People</div>
+        <h2 class="section-headline">Cast & Crew</h2>
+        <p class="section-subtitle">The talented team behind Dancing Girl.</p>
+      </div>
+
+      <div class="crew-grid" id="crewGrid">
+        <!-- Populated by JS -->
+        <div class="crew-card director">
+          <span class="crew-role">Director</span>
+          <h3>Aratutambire Anicia</h3>
+        </div>
+        <div class="crew-card producer">
+          <span class="crew-role">Producer & Writer</span>
+          <h3>Kaye Joshua</h3>
+        </div>
+        <div class="crew-card supervisor">
+          <span class="crew-role">Overall Supervisor</span>
+          <h3>Ssemanganda Reagan</h3>
+        </div>
+        <div class="crew-card cinematographer">
+          <span class="crew-role">Cinematographers</span>
+          <h3>Tree Moses</h3>
+          <h3>Tribx Tony</h3>
+        </div>
+        <div class="crew-card editor">
+          <span class="crew-role">Editors</span>
+          <h3>Tree Moses</h3>
+          <h3>Trib YX</h3>
+        </div>
+        <div class="crew-card advertising">
+          <span class="crew-role">Advertising Team</span>
+          <h3>Ahumuza Natasha</h3>
+          <h3>Nalukenge Angella Ruth</h3>
+        </div>
+      </div>
+
+      <div class="cast-section">
+        <h3 class="cast-heading">Cast</h3>
+        <div class="cast-grid" id="castGrid">
+          <!-- Populated by JS -->
+          <div class="cast-member">
+            <div class="cast-avatar">👑</div>
+            <h4>Queen Kellisha</h4>
+            <span>Dancer</span>
+          </div>
+          <div class="cast-member">
+            <div class="cast-avatar">💫</div>
+            <h4>Kyomuhendo Gift</h4>
+            <span>Hope</span>
+          </div>
+          <div class="cast-member">
+            <div class="cast-avatar">📚</div>
+            <h4>Mushabe Nickson</h4>
+            <span>Lecturer</span>
+          </div>
+          <div class="cast-member">
+            <div class="cast-avatar">💃</div>
+            <h4>Twesigyomwe Dorothy</h4>
+            <span>Dancer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag">Behind The Scenes</div>
+        <h2 class="section-headline">Film Stills</h2>
+        <p class="section-subtitle">Moments from Dancing Girl.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item wide"><img src="images/still-01.jpg" alt="Ocktagon Studios"></div>
+        <div class="gallery-item tall"><img src="images/still-02.jpg" alt="Dancing Girl Title"></div>
+        <div class="gallery-item"><img src="images/still-03.jpg" alt="Dancing Girl"></div>
+        <div class="gallery-item"><img src="images/still-04.jpg" alt="Classroom Scene"></div>
+        <div class="gallery-item"><img src="images/still-05.jpg" alt="Dance"></div>
+        <div class="gallery-item wide"><img src="images/still-06.jpg" alt="Classroom"></div>
+        <div class="gallery-item"><img src="images/still-07.jpg" alt="Entering Class"></div>
+        <div class="gallery-item"><img src="images/still-08.jpg" alt="Students"></div>
+        <div class="gallery-item"><img src="images/still-09.jpg" alt="Dance"></div>
+        <div class="gallery-item tall"><img src="images/still-10.jpg" alt="Posters"></div>
+        <div class="gallery-item"><img src="images/still-11.jpg" alt="Dreaming"></div>
+        <div class="gallery-item"><img src="images/still-12.jpg" alt="Ballet Posters"></div>
+        <div class="gallery-item"><img src="images/still-13.jpg" alt="Touching Dreams"></div>
+        <div class="gallery-item"><img src="images/still-14.jpg" alt="Mirror"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="section-tag">Get In Touch</div>
+          <h2 class="section-headline">Let's Create<br>Something <span class="text-gradient">Together</span></h2>
+          <p class="contact-desc">Have a story worth telling? Want to collaborate? We'd love to hear from you.</p>
+
+          <div class="contact-methods">
+            <a href="https://www.youtube.com/@OctagonFilms-q6k" target="_blank" class="contact-method" id="ytContact">
+              <div class="method-icon method-yt">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="method-info">
+                <strong>YouTube</strong>
+                <span>@OctagonFilms-q6k</span>
+              </div>
+            </a>
+            <a href="mailto:ocktagonstudios@gmail.com" class="contact-method" id="emailContact">
+              <div class="method-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="method-info">
+                <strong>Email</strong>
+                <span id="emailText">ocktagonstudios@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://wa.me/256770903235" target="_blank" class="contact-method" id="waContact">
+              <div class="method-icon method-wa">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </div>
+              <div class="method-info">
+                <strong>WhatsApp</strong>
+                <span id="whatsappText">+256 770 903 235</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-field">
+                <label>Name</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-field">
+                <label>Email</label>
+                <input type="email" placeholder="you@email.com" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Subject</label>
+              <select>
+                <option>Collaboration</option>
+                <option>Acting / Casting</option>
+                <option>Production</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Message</label>
+              <textarea rows="4" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-glow btn-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-mark">O</div>
+            <span class="logo-text">Ocktagon</span>
+          </a>
+          <p>Independent films from Uganda.<br>Telling stories that matter.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h5>Navigate</h5>
+            <a href="#films">Films</a>
+            <a href="#castcrew">Cast & Crew</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">Studio</a>
+            <a href="#watch">Watch</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h5>Connect</h5>
+            <a href="https://www.youtube.com/@OctagonFilms-q6k" target="_blank">YouTube</a>
+            <a href="https://wa.me/256770903235" target="_blank" id="footerWA">WhatsApp</a>
+            <a href="mailto:ocktagonstudios@gmail.com" id="footerEmail">Email</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Ocktagon Studios. All rights reserved.</p>
+        <p class="footer-made">Crafted with passion in Uganda 🇺🇬</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+      document.getElementById('navToggle').classList.toggle('active');
+    });
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('navLinks').classList.remove('active');
+        document.getElementById('navToggle').classList.remove('active');
+      });
+    });
+
+    // Form
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Message sent! We will get back to you soon.');
+      e.target.reset();
+    });
+
+    // Load settings from API
+    fetch('/api/settings')
+      .then(r => r.json())
+      .then(data => {
+        // Red note
+        if (data.show_red_note && data.red_note) {
+          const banner = document.getElementById('redNoteBanner');
+          const text = document.getElementById('redNoteText');
+          text.textContent = data.red_note;
+          banner.style.display = 'block';
+        }
+
+        // Stats
+        if (data.stats) {
+          document.getElementById('statViews').textContent = data.stats.views;
+          document.getElementById('statLikes').textContent = data.stats.likes;
+          document.getElementById('statSubs').textContent = data.stats.subscribers;
+          document.getElementById('channelSubs').textContent = data.stats.subscribers;
+        }
+
+        // Contact info
+        if (data.whatsapp) {
+          const clean = data.whatsapp.replace(/\D/g, '');
+          document.getElementById('waContact').href = 'https://wa.me/' + clean;
+          document.getElementById('whatsappText').textContent = data.whatsapp;
+          document.getElementById('footerWA').href = 'https://wa.me/' + clean;
+        }
+        if (data.email) {
+          document.getElementById('emailContact').href = 'mailto:' + data.email;
+          document.getElementById('emailText').textContent = data.email;
+          document.getElementById('footerEmail').href = 'mailto:' + data.email;
+        }
+        if (data.youtube_channel) {
+          document.getElementById('heroChannelBtn').href = data.youtube_channel;
+          document.getElementById('viewAllBtn').href = data.youtube_channel;
+          document.getElementById('ytContact').href = data.youtube_channel;
+        }
+        if (data.youtube_video) {
+          document.getElementById('heroWatchBtn').href = data.youtube_video;
+          document.getElementById('featuredWatchBtn').href = data.youtube_video;
+          document.getElementById('featuredPlay').href = data.youtube_video;
+          document.getElementById('watchPlay').href = data.youtube_video;
+          document.getElementById('watchBtn').href = data.youtube_video;
+        }
+        if (data.youtube_video_id) {
+          const thumbUrl = 'https://i.ytimg.com/vi/' + data.youtube_video_id + '/maxresdefault.jpg';
+          document.getElementById('featuredImg').src = thumbUrl;
+          document.getElementById('aboutImg').src = thumbUrl;
+          document.getElementById('watchThumb').src = thumbUrl;
+        }
+
+        // Crew
+        if (data.crew && data.crew.length) {
+          const crewGrid = document.getElementById('crewGrid');
+          crewGrid.innerHTML = data.crew.map(c => {
+            const namesHtml = c.names.map(n => '<h3>' + n + '</h3>').join('');
+            return '<div class="crew-card"><span class="crew-role">' + c.role + '</span>' + namesHtml + '</div>';
+          }).join('');
+        }
+
+        // Cast
+        if (data.cast && data.cast.length) {
+          const castGrid = document.getElementById('castGrid');
+          castGrid.innerHTML = data.cast.map(c => {
+            return '<div class="cast-member"><div class="cast-avatar">' + c.emoji + '</div><h4>' + c.name + '</h4><span>' + c.role + '</span></div>';
+          }).join('');
+        }
+
+        // Gallery
+        if (data.gallery_count) {
+          const grid = document.getElementById('galleryGrid');
+          let html = '';
+          const layouts = ['wide','tall','','','','wide','','','','tall','','','',''];
+          const alts = ['Ocktagon Studios','Dancing Girl Title','Dancing Girl','Classroom Scene','Dance','Classroom','Entering Class','Students','Dance','Posters','Dreaming','Ballet Posters','Touching Dreams','Mirror'];
+          for (let i = 1; i <= data.gallery_count; i++) {
+            const num = i.toString().padStart(2, '0');
+            const cls = layouts[i-1] ? 'gallery-item ' + layouts[i-1] : 'gallery-item';
+            html += '<div class="' + cls + '"><img src="images/still-' + num + '.jpg" alt="' + (alts[i-1] || 'Film still') + '"></div>';
+          }
+          grid.innerHTML = html;
+        }
+      })
+      .catch(() => {
+        // Silently fail — defaults already in HTML
+      });
+  </script>
+
+</body>
+</html>
