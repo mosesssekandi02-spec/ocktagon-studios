@@ -1,1 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Ocktagon Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030305;
+      --bg-elevated: #0a0a10;
+      --bg-card: #111118;
+      --text: #ffffff;
+      --text-secondary: #a0a0b0;
+      --text-muted: #606070;
+      --accent: #FF6B35;
+      --accent-bright: #FF8C5A;
+      --purple: #8B5CF6;
+      --border: rgba(255,255,255,0.06);
+      --red: #dc2626;
+      --red-bright: #ef4444;
+      --green: #22c55e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+    .subtitle { color: var(--text-secondary); margin-bottom: 32px; font-size: 0.95rem; }
 
+    /* Login */
+    .login-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+      max-width: 400px;
+      margin: 60px auto;
+    }
+    .login-box h2 { font-family: 'Space Grotesk'; margin-bottom: 24px; }
+    .login-box input {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .login-box input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #E85D04);
+      color: white;
+    }
+    .btn-primary:active { opacity: 0.9; }
+    .btn-red {
+      background: var(--red);
+      color: white;
+    }
+    .btn-green {
+      background: var(--green);
+      color: white;
+    }
+    .btn-small {
+      width: auto;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+    }
+
+    /* Admin panels */
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .panel h3 {
+      font-family: 'Space Grotesk';
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* Cast/Crew list */
+    .item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .item-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+    .item-row input {
+      padding: 10px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .item-row input:focus { outline: none; border-color: var(--accent); }
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-icon:active { background: var(--red); color: white; border-color: var(--red); }
+
+    /* Gallery upload */
+    .gallery-admin {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 600px) {
+      .gallery-admin { grid-template-columns: repeat(2, 1fr); }
+    }
+    .gallery-admin-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 16/10;
+    }
+    .gallery-admin-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-admin-item .upload-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .gallery-admin-item:hover .upload-overlay,
+    .gallery-admin-item:active .upload-overlay {
+      opacity: 1;
+    }
+    .gallery-admin-item label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .gallery-admin-item input[type="file"] {
+      display: none;
+    }
+    .upload-btn {
+      padding: 8px 16px;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Messages */
+    .msg {
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: none;
+    }
+    .msg.show { display: block; }
+    .msg-success { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+    .msg-error { background: rgba(220,38,38,0.15); color: #f87171; border: 1px solid rgba(220,38,38,0.3); }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+    .back-link:active { color: var(--accent); }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .toggle-row input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back-link">← Back to Website</a>
+
+    <!-- Login -->
+    <div id="loginSection">
+      <div class="login-box">
+        <h2>🔒 Admin Login</h2>
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button class="btn btn-primary" onclick="login()">Sign In</button>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminSection" style="display:none;">
+      <h1>⚙️ Site Settings</h1>
+      <p class="subtitle">Edit your website content. Changes save instantly.</p>
+
+      <div class="msg" id="msgBox"></div>
+
+      <!-- Red Note -->
+      <div class="panel">
+        <h3>🔴 Red Note Banner</h3>
+        <div class="toggle-row">
+          <input type="checkbox" id="showRedNote" checked>
+          <label for="showRedNote" style="margin:0;font-size:0.9rem;text-transform:none;letter-spacing:0;color:var(--text-secondary);">Show red note on website</label>
+        </div>
+        <div class="form-group">
+          <label>Note Text</label>
+          <textarea id="redNoteText" rows="2" placeholder="Enter your red note message..."></textarea>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="panel">
+        <h3>📞 Contact Information</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="text" id="whatsappInput" placeholder="+256 770 903 235">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="emailInput" placeholder="ocktagonstudios@gmail.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>YouTube Channel URL</label>
+          <input type="text" id="ytChannelInput" placeholder="https://youtube.com/...">
+        </div>
+        <div class="form-group">
+          <label>YouTube Video URL</label>
+          <input type="text" id="ytVideoInput" placeholder="https://youtube.com/watch?v=...">
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="panel">
+        <h3>📊 Video Stats</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Views</label>
+            <input type="text" id="viewsInput" placeholder="371">
+          </div>
+          <div class="form-group">
+            <label>Likes</label>
+            <input type="text" id="likesInput" placeholder="47">
+          </div>
+          <div class="form-group">
+            <label>Subscribers</label>
+            <input type="text" id="subsInput" placeholder="32">
+          </div>
+        </div>
+      </div>
+
+      <!-- Cast -->
+      <div class="panel">
+        <h3>🎭 Cast <button class="btn btn-small btn-green" onclick="addCast()" style="margin-left:auto;">+ Add</button></h3>
+        <div class="item-list" id="castList"></div>
+      </div>
+
+      <!-- Crew -->
+      <div class="panel">
+        <h3>🎬 Crew <button class="btn btn-small btn-green" onclick="addCrew()" style="margin-left:auto;">+ Add</button></h3>
+        <div class="item-list" id="crewList"></div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="panel">
+        <h3>🖼️ Gallery Images</h3>
+        <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:16px;">Tap an image to replace it. Upload JPG files only.</p>
+        <div class="gallery-admin" id="galleryAdmin"></div>
+      </div>
+
+      <button class="btn btn-primary" onclick="saveAll()" style="margin-bottom:40px;">💾 Save All Changes</button>
+    </div>
+  </div>
+
+  <script>
+    const ADMIN_PASSWORD = 'ocktagon'; // Default password
+    let currentSettings = {};
+
+    function showMsg(text, type) {
+      const box = document.getElementById('msgBox');
+      box.textContent = text;
+      box.className = 'msg show msg-' + type;
+      setTimeout(() => box.classList.remove('show'), 4000);
+    }
+
+    function login() {
+      const pw = document.getElementById('passwordInput').value.trim();
+      if (pw !== ADMIN_PASSWORD) {
+        alert('Wrong password. Try again.');
+        return;
+      }
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('adminSection').style.display = 'block';
+      loadSettings();
+    }
+
+    // Allow Enter key on password
+    document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') login();
+    });
+
+    function loadSettings() {
+      fetch('/api/settings')
+        .then(r => r.json())
+        .then(data => {
+          currentSettings = data;
+          document.getElementById('showRedNote').checked = data.show_red_note !== false;
+          document.getElementById('redNoteText').value = data.red_note || '';
+          document.getElementById('whatsappInput').value = data.whatsapp || '';
+          document.getElementById('emailInput').value = data.email || '';
+          document.getElementById('ytChannelInput').value = data.youtube_channel || '';
+          document.getElementById('ytVideoInput').value = data.youtube_video || '';
+          if (data.stats) {
+            document.getElementById('viewsInput').value = data.stats.views || '';
+            document.getElementById('likesInput').value = data.stats.likes || '';
+            document.getElementById('subsInput').value = data.stats.subscribers || '';
+          }
+          renderCast(data.cast || []);
+          renderCrew(data.crew || []);
+          renderGallery(data.gallery_count || 14);
+        })
+        .catch(() => showMsg('Failed to load settings', 'error'));
+    }
+
+    function renderCast(list) {
+      const container = document.getElementById('castList');
+      container.innerHTML = list.map((c, i) => `
+        <div class="item-row" data-index="${i}">
+          <input type="text" placeholder="Name" class="cast-name" value="${c.name}">
+          <input type="text" placeholder="Role" class="cast-role" value="${c.role}">
+          <button class="btn-icon" onclick="removeCast(${i})">🗑</button>
+        </div>
+      `).join('');
+    }
+
+    function addCast() {
+      const list = currentSettings.cast || [];
+      list.push({ name: '', role: '', emoji: '⭐' });
+      currentSettings.cast = list;
+      renderCast(list);
+    }
+
+    function removeCast(idx) {
+      currentSettings.cast.splice(idx, 1);
+      renderCast(currentSettings.cast);
+    }
+
+    function renderCrew(list) {
+      const container = document.getElementById('crewList');
+      container.innerHTML = list.map((c, i) => `
+        <div class="item-row" data-index="${i}">
+          <input type="text" placeholder="Role (e.g. Director)" class="crew-role-input" value="${c.role}">
+          <input type="text" placeholder="Names, comma separated" class="crew-names" value="${c.names.join(', ')}">
+          <button class="btn-icon" onclick="removeCrew(${i})">🗑</button>
+        </div>
+      `).join('');
+    }
+
+    function addCrew() {
+      const list = currentSettings.crew || [];
+      list.push({ role: '', names: [''] });
+      currentSettings.crew = list;
+      renderCrew(list);
+    }
+
+    function removeCrew(idx) {
+      currentSettings.crew.splice(idx, 1);
+      renderCrew(currentSettings.crew);
+    }
+
+    function renderGallery(count) {
+      const container = document.getElementById('galleryAdmin');
+      let html = '';
+      for (let i = 1; i <= count; i++) {
+        const num = i.toString().padStart(2, '0');
+            html += `
+          <div class="gallery-admin-item">
+            <img src="still-${num}.jpg" alt="Still ${num}">
+            <div class="upload-overlay">
+              <label>Still ${num}</label>
+              <input type="file" id="file-${num}" accept="image/jpeg,image/jpg" onchange="uploadImage('${num}')">
+              <button class="upload-btn" onclick="document.getElementById('file-${num}').click()">Replace</button>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function uploadImage(num) {
+      const fileInput = document.getElementById('file-' + num);
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('filename', 'still-' + num + '.jpg');
+      formData.append('password', ADMIN_PASSWORD);
+
+      showMsg('Uploading still-' + num + '.jpg...', 'success');
+
+      fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) {
+          showMsg('Image ' + num + ' replaced!', 'success');
+          // Refresh thumbnail
+          const img = fileInput.closest('.gallery-admin-item').querySelector('img');
+          img.src = 'images/still-' + num + '.jpg?v=' + Date.now();
+        } else {
+          showMsg('Upload failed: ' + (data.error || 'Unknown'), 'error');
+        }
+      })
+      .catch(() => showMsg('Upload failed. Check connection.', 'error'));
+    }
+
+    function saveAll() {
+      // Gather cast
+      const castRows = document.querySelectorAll('#castList .item-row');
+      const cast = [];
+      castRows.forEach(row => {
+        const name = row.querySelector('.cast-name').value.trim();
+        const role = row.querySelector('.cast-role').value.trim();
+        if (name) cast.push({ name, role, emoji: '⭐' });
+      });
+
+      // Gather crew
+      const crewRows = document.querySelectorAll('#crewList .item-row');
+      const crew = [];
+      crewRows.forEach(row => {
+        const role = row.querySelector('.crew-role-input').value.trim();
+        const namesStr = row.querySelector('.crew-names').value.trim();
+        const names = namesStr.split(',').map(n => n.trim()).filter(n => n);
+        if (role) crew.push({ role, names });
+      });
+
+      const payload = {
+        password: ADMIN_PASSWORD,
+        show_red_note: document.getElementById('showRedNote').checked,
+        red_note: document.getElementById('redNoteText').value.trim(),
+        whatsapp: document.getElementById('whatsappInput').value.trim(),
+        email: document.getElementById('emailInput').value.trim(),
+        youtube_channel: document.getElementById('ytChannelInput').value.trim(),
+        youtube_video: document.getElementById('ytVideoInput').value.trim(),
+        cast,
+        crew,
+        stats: {
+          views: document.getElementById('viewsInput').value.trim(),
+          likes: document.getElementById('likesInput').value.trim(),
+          subscribers: document.getElementById('subsInput').value.trim()
+        }
+      };
+
+      showMsg('Saving changes...', 'success');
+
+      fetch('/api/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) {
+          showMsg('All changes saved! Refresh your website to see them.', 'success');
+        } else {
+          showMsg('Save failed: ' + (data.error || 'Unknown'), 'error');
+        }
+      })
+      .catch(() => showMsg('Save failed. Check connection.', 'error'));
+    }
+  </script>
+</body>
+</html>
