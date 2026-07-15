@@ -98,4 +98,4 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🎬 Ocktagon Studios running on port ${PORT}`);
-});
+});Fix admin route
